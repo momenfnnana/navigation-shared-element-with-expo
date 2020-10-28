@@ -5,6 +5,8 @@ import MarktingSlider from '../Components/MarktingSlider';
 import { DATA } from '../config/travel';
 import { SPACING } from '../config/theme';
 import Icon from '../Components/Icon';
+// here we importing SharedElement to warp our component want to share
+// hint: should have to wrap it inside all shared screens
 import { SharedElement } from "react-navigation-shared-element";
 const List = ({ navigation }) => {
     return (
@@ -28,6 +30,10 @@ const List = ({ navigation }) => {
                             }}
                             onPress={() => navigation.push("Detail", { item })}
                         >
+                            {/* 
+                            we wrap the icons here and when wrap should get it unique id
+                            go to Detail Screen...
+                            */}
                             <SharedElement id={`item.${item.id}.icon`}>
                                 <Icon uri={item.imageUri} />
                             </SharedElement>

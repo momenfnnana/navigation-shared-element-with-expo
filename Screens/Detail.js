@@ -89,6 +89,10 @@ const Detail = ({ navigation, route }) => {
                             }}
                         >
                             <Animated.View style={{ alignItems: "center", opacity }}>
+                                {/* 
+                                iam wraped the component here also
+                                and get it the same unique id iam putted in first screen
+                                */}
                                 <SharedElement id={`item.${item.id}.icon`}>
                                     <Icon uri={item.imageUri} />
                                 </SharedElement>
@@ -141,6 +145,12 @@ const Detail = ({ navigation, route }) => {
         </SafeAreaView>
     )
 }
+// the last thing to make it active shoud put this line as you see 
+// ComponentName.sharedElements(route, otherRoute, showing) => {
+// map on your data contain item you want to share and return the exact id you shared
+// }
+
+// now reload your app and happy hacking :)
 
 Detail.sharedElements = (route, otherRoute, showing) => {
     return DATA.map((item) => `item.${item.id}.icon`);
